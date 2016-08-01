@@ -17,8 +17,18 @@ public class BaseSample {
 		
 		SqlSession session = factory.openSession();
 
-		Good good = (Good)session.selectOne("stu.mybatis.official.base.GoodMapper.selectGood", 1);
-		
-		System.out.println(good);
+		try {
+			//方法一
+			Good good = (Good) session.selectOne("stu.mybatis.official.base.GoodMapper.selectGood", 1);
+			System.out.println(good);
+			
+			//方法二
+			GoodMapper goodMapper = session.getMapper(GoodMapper.class);
+			Good good2 = goodMapper.selectGood(1);
+			System.out.println(good2);
+		} 
+		finally {
+			session.close();
+		}
 	}
 }
