@@ -6,4 +6,7 @@
 	<select id="selectGood" resultType="stu.mybatis.official.base.Good">
 		select * from t_goods where id = #{id}
 	</select>
+	<update id="updateName" parameterType="stu.mybatis.official.base.Good">
+		update t_goods set name=#{name} where id=#{id}
+	</update>
 </mapper>
