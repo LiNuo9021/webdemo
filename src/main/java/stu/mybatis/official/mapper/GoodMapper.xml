@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="stu.mybatis.official.mapper.GoodMapper">
+	<select id="selectOneGood" resultType="stu.mybatis.official.base.Good">
+		select * from t_goods where id = #{id}
+	</select>
+	
+	<select id="selectGoods" useCache="true" resultType="stu.mybatis.official.base.Good">
+		select * from t_goods 
+	</select>
+	
+	
+	
+	<update id="updateGood" parameterType="stu.mybatis.official.base.Good">
+		update t_goods set name=#{name} where id=#{id}
+	</update>
+	
+	
+	<delete id="deleteGood">
+		delete from t_goods where id=#{id}
+	</delete>
+	
+	<insert id="insertGood">
+		insert into t_goods(status,name,image,introduction) values(#status,#name,#image,#introduction)
+	</insert>
+	
+	
+</mapper>
